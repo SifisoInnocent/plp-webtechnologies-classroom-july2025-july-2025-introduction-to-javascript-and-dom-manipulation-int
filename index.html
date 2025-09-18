@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Fundamentals Assignment</title>
+  <style>
+    /* =====================
+       CSS Styling (Embedded for simplicity)
+       ===================== */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+
+    header, footer {
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    section {
+      margin-bottom: 30px;
+      border: 1px solid #ccc;
+      padding: 15px;
+      border-radius: 8px;
+      background-color: #fff;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin-top: 10px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>JavaScript Fundamentals Assignment</h1>
+  </header>
+
+  <main>
+    <!-- Part 1: Variables & Conditionals -->
+    <section id="part1">
+      <h2>Part 1: Variables & Conditionals</h2>
+      <p id="conditional-output"></p>
+    </section>
+
+    <!-- Part 2: Functions -->
+    <section id="part2">
+      <h2>Part 2: Functions</h2>
+      <p id="function-output"></p>
+    </section>
+
+    <!-- Part 3: Loops -->
+    <section id="part3">
+      <h2>Part 3: Loops</h2>
+      <ul id="loop-output"></ul>
+    </section>
+
+    <!-- Part 4: DOM Interactions -->
+    <section id="part4">
+      <h2>Part 4: DOM Interactions</h2>
+      <button id="click-button">Click Me</button>
+      <p id="click-output">Button not clicked yet.</p>
+
+      <input type="text" id="input-field" placeholder="Type something">
+      <p id="input-output"></p>
+
+      <div id="dynamic-content"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 JavaScript Assignment</p>
+  </footer>
+
+  <script>
+    // =====================
+    // Part 1: Variables & Conditionals
+    // =====================
+    let age = 20;
+    let canVote = (age >= 18);
+
+    if (canVote) {
+      document.getElementById("conditional-output").textContent = "You are eligible to vote!";
+    } else {
+      document.getElementById("conditional-output").textContent = "You are NOT eligible to vote yet.";
+    }
+
+    // =====================
+    // Part 2: Functions
+    // =====================
+    function addNumbers(a, b) {
+      return a + b;
+    }
+
+    function greetUser(name) {
+      return `Hello, ${name}! Welcome to JS Fundamentals.`;
+    }
+
+    let sum = addNumbers(5, 7);
+    let greeting = greetUser("Sfiso");
+    document.getElementById("function-output").textContent = `${greeting} Sum of 5 + 7 is ${sum}.`;
+
+    // =====================
+    // Part 3: Loops
+    // =====================
+    let loopOutput = document.getElementById("loop-output");
+
+    // For loop example
+    for (let i = 1; i <= 5; i++) {
+      let li = document.createElement("li");
+      li.textContent = `For loop iteration: ${i}`;
+      loopOutput.appendChild(li);
+    }
+
+    // While loop example
+    let j = 1;
+    while (j <= 3) {
+      let li = document.createElement("li");
+      li.textContent = `While loop iteration: ${j}`;
+      loopOutput.appendChild(li);
+      j++;
+    }
+
+    // =====================
+    // Part 4: DOM Interactions
+    // =====================
+    // Button click interaction
+    document.getElementById("click-button").addEventListener("click", function() {
+      document.getElementById("click-output").textContent = "Button clicked! ✅";
+    });
+
+    // Input keyup interaction
+    document.getElementById("input-field").addEventListener("keyup", function(event) {
+      document.getElementById("input-output").textContent = `You typed: ${event.target.value}`;
+    });
+
+    // Dynamic content creation
+    let dynamicDiv = document.getElementById("dynamic-content");
+    for (let k = 1; k <= 3; k++) {
+      let p = document.createElement("p");
+      p.textContent = `Dynamic paragraph ${k}`;
+      dynamicDiv.appendChild(p);
+    }
+  </script>
+</body>
+</html>
